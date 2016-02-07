@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CutList>
+  <Cut>
+    <Length>23</Length>
+    <Quantity>2</Quantity>
+  </Cut>
+  <Cut>
+    <Length>31</Length>
+    <Quantity>14</Quantity>
+  </Cut>
+  <Cut>
+    <Length>36.5</Length>
+    <Quantity>2</Quantity>
+  </Cut>
+  <Cut>
+    <Length>44.5</Length>
+    <Quantity>1</Quantity>
+  </Cut>
+  <Cut>
+    <Length>96</Length>
+    <Quantity>10</Quantity>
+  </Cut>
+  <Cut>
+    <Length>144</Length>
+    <Quantity>6</Quantity>
+  </Cut>
+  <Cut>
+    <Length>200.43534</Length>
+    <Quantity>2</Quantity>
+  </Cut>
+</CutList>
