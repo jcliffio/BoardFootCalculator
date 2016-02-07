@@ -28,7 +28,7 @@ namespace BoardFootCalculator
                 cutList = cutList.OrderByDescending(x => x).ToList();
                 foreach (var cut in cutList)
                 {
-                    if (groupedCuts.Sum(x => x) + cut <= stockLengths.Max())
+                    if (groupedCuts.Sum() + cut <= stockLengths.Max())
                     {
                         groupedCuts.Add(cut);
                     }
@@ -48,7 +48,7 @@ namespace BoardFootCalculator
                 foreach (var stockLength in stockLengths.OrderBy(x => x))
                 {
                     // If we match on a board, don't keep checking larger boards!
-                    if (groupedCuts.Sum(x => x) <= stockLength)
+                    if (groupedCuts.Sum() <= stockLength)
                     {
                         stockCounts[stockLength].Add(new List<double>(groupedCuts));
                         break;
@@ -65,6 +65,7 @@ namespace BoardFootCalculator
         {
             foreach (var result in results)
             {
+                // Only print results for a stock length if any exist
                 if (result.Value.Any())
                 {
                     var headerString = $"Length: {result.Key}\", Quantity: {result.Value.Count}";
@@ -74,7 +75,7 @@ namespace BoardFootCalculator
                     foreach (var group in result.Value)
                     {
                         Console.Write(string.Join(",", group.Select(x => $"{x}\"")).PadRight(30));
-                        Console.WriteLine($"Waste: {result.Key - group.Sum(x => x)}\"");
+                        Console.WriteLine($"Waste: {result.Key - group.Sum()}\"");
                     }
 
                     Console.WriteLine("");
@@ -83,7 +84,7 @@ namespace BoardFootCalculator
 
             if (cutsRemaining.Count > 0)
             {
-                Console.WriteLine($"Cuts that couldn't be matched: {string.Join(",", cutsRemaining.Select(x => x))}");
+                Console.WriteLine($"Cuts that couldn't be matched: {string.Join(",", cutsRemaining)}");
             }
         }
     }

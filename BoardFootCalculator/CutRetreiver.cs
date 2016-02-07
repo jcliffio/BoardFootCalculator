@@ -26,7 +26,7 @@ namespace BoardFootCalculator
                 }
             }
 
-            return cutsList.OrderByDescending(x => x).ToList();
+            return cutsList.ToList();
         }
     }
 }
