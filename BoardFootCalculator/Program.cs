@@ -78,7 +78,7 @@ namespace BoardFootCalculator
                         Console.WriteLine($"Waste: {result.Key - group.Sum()}\"");
                     }
 
-                    Console.WriteLine("");
+                    Console.WriteLine();
                 }
             }
 
