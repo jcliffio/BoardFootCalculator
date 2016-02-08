@@ -68,14 +68,14 @@ namespace BoardFootCalculator
                 // Only print results for a stock length if any exist
                 if (result.Value.Any())
                 {
-                    var headerString = $"Length: {result.Key}\", Quantity: {result.Value.Count}";
+                    var headerString = string.Format("Length: {0}\", Quantity: {1})", result.Key, result.Value.Count); //$"Length: {result.Key}\", Quantity: {result.Value.Count}";
                     Console.WriteLine(headerString);
                     Console.WriteLine(new string('-', headerString.Length));
 
                     foreach (var group in result.Value)
                     {
-                        Console.Write(string.Join(",", group.Select(x => $"{x}\"")).PadRight(30));
-                        Console.WriteLine($"Waste: {result.Key - group.Sum()}\"");
+                        Console.Write(string.Join(",", group.Select(x => string.Format("{0}\"", x)/*$"{x}\""*/)).PadRight(30));
+                        Console.WriteLine("Waste: {0}\"", result.Key - group.Sum()); //$"Waste: {result.Key - group.Sum()}\"");
                     }
 
                     Console.WriteLine();
@@ -84,7 +84,7 @@ namespace BoardFootCalculator
 
             if (cutsRemaining.Count > 0)
             {
-                Console.WriteLine($"Cuts that couldn't be matched: {string.Join(",", cutsRemaining)}");
+                Console.WriteLine("Cuts that couldn't be matched: {0}", string.Join(",", cutsRemaining)); //$"Cuts that couldn't be matched: {string.Join(",", cutsRemaining)}");
             }
         }
     }
